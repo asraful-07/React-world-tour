@@ -1,0 +1,29 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.box{
+  border: 2px solid purple;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.visited{
+  background: crimson;
+}
+
+.btn{
+  background: tomato;
+  padding: 10px;
+  margin: 10px;
+}
