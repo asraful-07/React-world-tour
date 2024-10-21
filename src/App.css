@@ -27,3 +27,13 @@
   padding: 10px;
   margin: 10px;
 }
+
+.flag{
+  display: flex;
+  gap: 20px;
+  width: 10px;
+  margin-right: 10px;
+}
+.flag, .img{
+  width: 100px;
+}

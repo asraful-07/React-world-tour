@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Country = ({country, handelVisitedCountry}) => {
+const Country = ({country, handelVisitedCountry, handelFlag}) => {
     const {name, flags, population, area, cca3} = country;
 
     const [visited, setVisited] = useState(false)
@@ -8,7 +8,7 @@ const Country = ({country, handelVisitedCountry}) => {
     const handelVisited = () => {
         setVisited(!visited)
     }
-    console.log(handelVisitedCountry);
+    // console.log(handelVisitedCountry);
     return (
         <div className={`box ${visited ?'visited' : 'non-visited'}`}>
             <h4 style={{color: visited ? "white" : "green"}}>Name: {name?.common}</h4>
@@ -16,6 +16,7 @@ const Country = ({country, handelVisitedCountry}) => {
             <p>Population: {population}</p>
             <p>area: {area}</p>
             <p><small>Code: {cca3}</small></p>
+            <button onClick={ () => handelFlag(country.flags.png)}>flag</button>
             <button onClick={ () => handelVisitedCountry(country)}>Visited</button>
             <button className="btn" onClick={handelVisited}>{ visited ? 'Visited' : 'go to'}</button>
             {

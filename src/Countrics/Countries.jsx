@@ -6,11 +6,19 @@ const Countries = () => {
 
     const [countries, setCounters] = useState([]);
     const [visitedCountry, setVisitedCountry] = useState([]);
+    const [visitFlag, setVisitFlag] = useState([])
+
+    const handelFlag = (flag) => {
+        console.log('hello ji keso ho')
+        const newFlag = [...visitFlag, flag]
+        setVisitFlag(newFlag)
+    }
+
 
     const handelVisitedCountry = country => {
-        console.log('hello i am devoloper')
-        const newVisiredCountry = [...visitedCountry, country];
-        setVisitedCountry(newVisiredCountry);
+        // console.log('hello i am devoloper')
+        const newVisitedCountry = [...visitedCountry, country];
+        setVisitedCountry(newVisitedCountry);
     }
 
     useEffect( () => {
@@ -28,10 +36,17 @@ const Countries = () => {
                   }
                 </ul>
             </div>
+            {/* display flags show */}
+            <div className="flag">
+                {
+                    visitFlag.map((flag, index) => <img className="img" key={index} src={flag}></img>)
+                }
+
+            </div>
             <h4>Countries: {countries.length}</h4>
            <div className="container">
            {
-                countries.map(countrie => <Country key={countrie.cca3} handelVisitedCountry={handelVisitedCountry} country={countrie}></Country>)
+                countries.map(countrie => <Country key={countrie.cca3} handelFlag={handelFlag} handelVisitedCountry={handelVisitedCountry} country={countrie}></Country>)
             }
            </div>
         </div>
